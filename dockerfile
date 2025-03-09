@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copiamos el archivo JAR de nuestra aplicación al contenedor
-COPY target/mi-app.jar app.jar
+COPY target/programacion-reactiva-0.0.1-SNAPSHOT.jar app.jar
 
 # Exponemos el puerto en el que corre la app (ajústalo si usas otro)
 EXPOSE 8080
