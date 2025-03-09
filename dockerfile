@@ -1,14 +1,14 @@
-# Usamos una imagen oficial de OpenJDK
-FROM openjdk:17-jdk-slim
+# Etapa 1: Compilación del proyecto
+FROM maven:3.9.5-eclipse-temurin AS builder
 
-# Configuramos el directorio de trabajo dentro del contenedor
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Copiamos el archivo JAR de nuestra aplicación al contenedor
-COPY target/programacion-reactiva-0.0.1-SNAPSHOT.jar app.jar
+# Etapa 2: Imagen final con OpenJDK
+FROM openjdk:17-jdk-slim AS runtime
 
-# Exponemos el puerto en el que corre la app (ajústalo si usas otro)
-EXPOSE 8080
+WORKDIR /app
+COPY --from=builder /app/target/programacion-reactiva-0.0.1-SNAPSHOT.jar app.jar
 
-# Comando para ejecutar la aplicación
 CMD ["java", "-jar", "app.jar"]
