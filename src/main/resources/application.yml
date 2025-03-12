@@ -4,4 +4,8 @@ spring:
     username: avnadmin
     password: ${DB_PASSWORD} # Usa la variable de entorno DB_PASSWORD
   liquibase:
+    enabled: true # Asegura que Liquibase esté habilitado
     change-log: classpath:db/changelog/db.changelog-master.xml
+logging:
+  level:
+    liquibase: DEBUG # Habilita el registro de depuración de Liquibase
