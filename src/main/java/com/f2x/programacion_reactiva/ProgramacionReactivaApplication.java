@@ -8,8 +8,6 @@ public class ProgramacionReactivaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProgramacionReactivaApplication.class, args);
-		String password = System.getenv("DB_PASSWORD");
-		System.out.println("Valor de DB_PASSWORD: " + password);
 	}
 
 }
