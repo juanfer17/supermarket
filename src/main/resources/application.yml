@@ -2,6 +2,6 @@ spring:
   r2dbc:
     url: r2dbc:postgresql://pg-301a7b8d-juanferja17-fb6f.g.aivencloud.com:17564/defaultdb?sslmode=require
     username: avnadmin
-    password: 
+    password: ${DB_PASSWORD}
   liquibase:
     change-log: classpath:db/changelog/db.changelog-master.xml
